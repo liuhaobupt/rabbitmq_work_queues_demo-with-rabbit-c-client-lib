@@ -6,3 +6,9 @@ rmq_worker.c is to worker.py
 other files is from the rabbitmq-c source files.
 
 You need the librabbitmq.a to compile the project.
+
+newer:
+a demo like the routing(http://www.rabbitmq.com/tutorials/tutorial-four-python.html) with rabbitmq-c lib
+
+emit_log_direct.c is to emit_log_direct.py
+receive_logs_direct.c is to receive_logs_direct.py
