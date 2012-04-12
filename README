@@ -1,0 +1,8 @@
+I write a demo like the rabbitmq work-queues tutorials(http://www.rabbitmq.com/tutorials/tutorial-two-python.html) with rabbitmq-c lib
+
+rmq_new_task.c is to new_task.py
+rmq_worker.c is to worker.py
+
+other files is from the rabbitmq-c source files.
+
+You need the librabbitmq.a to compile the project.
