@@ -33,7 +33,7 @@ int main(int argc, const char **argv) {
 
 	die_on_error(sockfd = amqp_open_socket(hostname, port), "Opening socket");
 	amqp_set_sockfd(conn, sockfd);
-	die_on_amqp_error(amqp_login(conn, "/", 0, 131072, 0, AMQP_SASL_METHOD_PLAIN, "guest", "guest"),"Logging in");
+	die_on_amqp_error(amqp_login(conn, "/", 0, 131072, 0, AMQP_SASL_METHOD_PLAIN, "crawler", "crawler"),"Logging in");
 	amqp_channel_open(conn, channelid);
 	die_on_amqp_error(amqp_get_rpc_reply(conn), "Opening channel");
 
@@ -42,7 +42,7 @@ int main(int argc, const char **argv) {
 	arg->value.value.bytes = amqp_cstring_bytes("all");
 	const amqp_table_t args = {1,arg};*/
 
-	amqp_queue_declare(conn,channelid,amqp_cstring_bytes(queuename),0,1,0,0,amqp_empty_table);
+	/*amqp_queue_declare(conn,channelid,amqp_cstring_bytes(queuename),0,1,0,0,amqp_empty_table);*/
 
 	{
 		amqp_basic_properties_t props;
@@ -55,7 +55,8 @@ int main(int argc, const char **argv) {
 										amqp_cstring_bytes(queuename),
 										0,
 										0,
-										&props,
+										//&props,
+										NULL,
 										amqp_cstring_bytes(messagebody)),
 					"Publishing");
 	}
